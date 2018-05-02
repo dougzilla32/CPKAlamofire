@@ -14,16 +14,14 @@ public class RequestTask: CancellableTask {
     private let task: Request
     
     init(_ task: Request) {
-//        super.init()
         self.task = task
     }
-    
-    override open func cancel() {
-        super.cancel()
+
+    public func cancel() {
         task.cancel()
     }
     
-    override open var isCancelled: Bool {
+    public var isCancelled: Bool {
         get {
             return task.task?.state == .canceling
         }
