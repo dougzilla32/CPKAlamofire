@@ -5,9 +5,11 @@ import XCTest
 class AlamofireTests: XCTestCase {
     func testWUnderground() {
         let ex = expectation(description: "")
-        let rq = Alamofire.request("http://example.com", method: .get).responseJSON().done { rsp in
+        let rq = Alamofire.request("http://example.com", method: .get).responseJSONWithCancel().done { rsp in
 //            XCTAssertEqual(json, rsp.json as? NSDictionary)
             ex.fulfill()
+        }.catch { error in
+                
         }
 //        waitForExpectations(timeout: 1)
     }
