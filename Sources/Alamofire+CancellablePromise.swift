@@ -8,7 +8,9 @@
 
 import Alamofire
 import PromiseKit
+#if !CPKCocoaPods
 import CancellablePromiseKit
+#endif
 
 public class RequestTask: CancellableTask {
     private let task: Request
