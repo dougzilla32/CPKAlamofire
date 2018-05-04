@@ -1,24 +1,41 @@
+import Alamofire
 import CPKAlamofire
+import OHHTTPStubs
 import PromiseKit
+import CancellablePromiseKit
 import XCTest
 
 class AlamofireTests: XCTestCase {
-    func testWUnderground() {
-        let ex = expectation(description: "")
-        let rq = Alamofire.request("http://example.com", method: .get).responseJSON(cancel: .enabled).done { rsp in
-//            XCTAssertEqual(json, rsp.json as? NSDictionary)
-            ex.fulfill()
-        }.catch { error in
-                
+    func test() {
+        let json: NSDictionary = ["key1": "value1", "key2": ["value2A", "value2B"]]
+        
+        OHHTTPStubs.stubRequests(passingTest: { $0.url!.host == "example.com" }) { _ in
+            return OHHTTPStubsResponse(jsonObject: json, statusCode: 200, headers: nil)
         }
-//        waitForExpectations(timeout: 1)
+        
+        let ex = expectation(description: "")
+        
+        let context = CancelContext.makeContext()
+        let rq = Alamofire.request("http://example.com", method: .get).responseJSON(cancel: context).done { rsp in
+            XCTFail()
+        }.catch(policy: .allErrors) { error in
+            do {
+                throw error
+            } catch is PromiseCancelledError {
+                ex.fulfill()
+            } catch {
+                XCTFail()
+            }
+        }
+        context.cancelAll()
+        waitForExpectations(timeout: 1)
     }
-
+    
     override func tearDown() {
-//        OHHTTPStubs.removeAllStubs()
+        OHHTTPStubs.removeAllStubs()
     }
-
-#if swift(>=3.2)
+    
+    #if swift(>=3.2)
     private struct Fixture: Decodable {
         let key1: String
         let key2: [String]
@@ -26,43 +43,64 @@ class AlamofireTests: XCTestCase {
     
     func testDecodable1() {
         
-        func getFixture() -> Promise<Fixture> {
-            return Alamofire.request("http://example.com", method: .get).responseDecodable(queue: nil)
+        func getFixture(context: CancelMode) -> Promise<Fixture> {
+            return Alamofire.request("http://example.com", method: .get).responseDecodable(queue: nil, cancel: context)
         }
         
         let json: NSDictionary = ["key1": "value1", "key2": ["value2A", "value2B"]]
         
-//        OHHTTPStubs.stubRequests(passingTest: { $0.url!.host == "example.com" }) { _ in
-//            return OHHTTPStubsResponse(jsonObject: json, statusCode: 200, headers: nil)
-//        }
+        OHHTTPStubs.stubRequests(passingTest: { $0.url!.host == "example.com" }) { _ in
+            return OHHTTPStubsResponse(jsonObject: json, statusCode: 200, headers: nil)
+        }
         
         let ex = expectation(description: "")
         
-        getFixture().done { fixture in
+        let context = CancelContext.makeContext()
+        getFixture(context: context).done { fixture in
             XCTAssert(fixture.key1 == "value1", "Value1 found")
-            ex.fulfill()
+            XCTFail()
+        }.catch(policy: .allErrors) { error in
+            do {
+                throw error
+            } catch is PromiseCancelledError {
+                ex.fulfill()
+            } catch {
+                XCTFail()
+            }
         }
-//        waitForExpectations(timeout: 1)
+        context.cancelAll()
+        waitForExpectations(timeout: 1)
         
     }
     
     func testDecodable2() {
         let json: NSDictionary = ["key1": "value1", "key2": ["value2A", "value2B"]]
         
-//        OHHTTPStubs.stubRequests(passingTest: { $0.url!.host == "example.com" }) { _ in
-//            return OHHTTPStubsResponse(jsonObject: json, statusCode: 200, headers: nil)
-//        }
+        OHHTTPStubs.stubRequests(passingTest: { $0.url!.host == "example.com" }) { _ in
+            return OHHTTPStubsResponse(jsonObject: json, statusCode: 200, headers: nil)
+        }
         
         let ex = expectation(description: "")
         
+        let context = CancelContext.makeContext()
         firstly {
-            Alamofire.request("http://example.com", method: .get).responseDecodable(Fixture.self)
+            Alamofire.request("http://example.com", method: .get).responseDecodable(Fixture.self, cancel: context)
         }.done { fixture in
             XCTAssert(fixture.key1 == "value1", "Value1 found")
-            ex.fulfill()
+            XCTFail()
+        }.catch(policy: .allErrors) { error in
+            do {
+                throw error
+            } catch is PromiseCancelledError {
+                ex.fulfill()
+            } catch {
+                XCTFail()
+            }
         }
-//        waitForExpectations(timeout: 1)
+        context.cancelAll()
+        
+        waitForExpectations(timeout: 1)
         
     }
-#endif
+    #endif
 }

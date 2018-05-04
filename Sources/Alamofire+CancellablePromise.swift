@@ -33,7 +33,7 @@ public class RequestTask: CancellableTask {
 extension Alamofire.DataRequest {
     /// Adds a handler to be called once the request has finished.
     public func response(_: PMKNamespacer, queue: DispatchQueue? = nil, cancel: CancelMode) -> Promise<(URLRequest, HTTPURLResponse, Data)> {
-        return Promise(task: RequestTask(self), cancel: cancel) { seal in
+        return Promise(cancel: cancel, task: RequestTask(self)) { seal in
             self.response(queue: queue) { rsp in
                 if let error = rsp.error {
                     seal.reject(error)
@@ -48,7 +48,7 @@ extension Alamofire.DataRequest {
     
     /// Adds a handler to be called once the request has finished.
     public func responseData(queue: DispatchQueue? = nil, cancel: CancelMode) -> Promise<(data: Data, response: PMKAlamofireDataResponse)> {
-        return Promise(task: RequestTask(self), cancel: cancel) { seal in
+        return Promise(cancel: cancel, task: RequestTask(self)) { seal in
             self.responseData(queue: queue) { response in
                 switch response.result {
                 case .success(let value):
@@ -62,7 +62,7 @@ extension Alamofire.DataRequest {
     
     /// Adds a handler to be called once the request has finished.
     public func responseString(queue: DispatchQueue? = nil, cancel: CancelMode) -> Promise<(string: String, response: PMKAlamofireDataResponse)> {
-        return Promise(task: RequestTask(self), cancel: cancel) { seal in
+        return Promise(cancel: cancel, task: RequestTask(self)) { seal in
             self.responseString(queue: queue) { response in
                 switch response.result {
                 case .success(let value):
@@ -76,7 +76,7 @@ extension Alamofire.DataRequest {
     
     /// Adds a handler to be called once the request has finished.
     public func responseJSON(queue: DispatchQueue? = nil, options: JSONSerialization.ReadingOptions = .allowFragments, cancel: CancelMode) -> Promise<(json: Any, response: PMKAlamofireDataResponse)> {
-        return Promise(task: RequestTask(self), cancel: cancel) { seal in
+        return Promise(cancel: cancel, task: RequestTask(self)) { seal in
             self.responseJSON(queue: queue, options: options) { response in
                 switch response.result {
                 case .success(let value):
@@ -90,7 +90,7 @@ extension Alamofire.DataRequest {
     
     /// Adds a handler to be called once the request has finished.
     public func responsePropertyList(queue: DispatchQueue? = nil, options: PropertyListSerialization.ReadOptions = PropertyListSerialization.ReadOptions(), cancel: CancelMode) -> Promise<(plist: Any, response: PMKAlamofireDataResponse)> {
-        return Promise(task: RequestTask(self), cancel: cancel) { seal in
+        return Promise(cancel: cancel, task: RequestTask(self)) { seal in
             self.responsePropertyList(queue: queue, options: options) { response in
                 switch response.result {
                 case .success(let value):
@@ -111,7 +111,7 @@ extension Alamofire.DataRequest {
      - Parameter decoder: JSONDecoder, by default JSONDecoder()
      */
     public func responseDecodable<T: Decodable>(queue: DispatchQueue? = nil, decoder: JSONDecoder = JSONDecoder(), cancel: CancelMode) -> Promise<T> {
-        return Promise(task: RequestTask(self), cancel: cancel) { seal in
+        return Promise(cancel: cancel, task: RequestTask(self)) { seal in
             self.responseData(queue: queue) { response in
                 switch response.result {
                 case .success(let value):
@@ -135,7 +135,7 @@ extension Alamofire.DataRequest {
      - Parameter decoder: JSONDecoder, by default JSONDecoder()
      */
     public func responseDecodable<T: Decodable>(_ type: T.Type, queue: DispatchQueue? = nil, decoder: JSONDecoder = JSONDecoder(), cancel: CancelMode) -> Promise<T> {
-        return Promise(task: RequestTask(self), cancel: cancel) { seal in
+        return Promise(cancel: cancel, task: RequestTask(self)) { seal in
             self.responseData(queue: queue) { response in
                 switch response.result {
                 case .success(let value):
@@ -155,7 +155,7 @@ extension Alamofire.DataRequest {
 
 extension Alamofire.DownloadRequest {
     public func response(_: PMKNamespacer, queue: DispatchQueue? = nil, cancel: CancelMode) -> Promise<DefaultDownloadResponse> {
-        return Promise(task: RequestTask(self), cancel: cancel) { seal in
+        return Promise(cancel: cancel, task: RequestTask(self)) { seal in
             self.response(queue: queue) { response in
                 if let error = response.error {
                     seal.reject(error)
@@ -168,7 +168,7 @@ extension Alamofire.DownloadRequest {
     
     /// Adds a handler to be called once the request has finished.
     public func responseData(queue: DispatchQueue? = nil, cancel: CancelMode) -> Promise<DownloadResponse<Data>> {
-        return Promise(task: RequestTask(self), cancel: cancel) { seal in
+        return Promise(cancel: cancel, task: RequestTask(self)) { seal in
             self.responseData(queue: queue) { response in
                 switch response.result {
                 case .success:
