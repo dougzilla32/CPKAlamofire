@@ -15,13 +15,13 @@ class AlamofireTests: XCTestCase {
         
         let ex = expectation(description: "")
         
-        let context = CancelContext.makeContext()
+        let context = CancelContext()
         let rq = Alamofire.request("http://example.com", method: .get).responseJSON(cancel: context).done { rsp in
             XCTFail()
         }.catch(policy: .allErrors) { error in
             error.isCancelled ? ex.fulfill() : XCTFail()
         }
-        context.cancelAll()
+        context.cancel()
         waitForExpectations(timeout: 1)
     }
     
@@ -37,7 +37,7 @@ class AlamofireTests: XCTestCase {
     
     func testDecodable1() {
         
-        func getFixture(context: CancelMode) -> Promise<Fixture> {
+        func getFixture(context: CancelContext) -> Promise<Fixture> {
             return Alamofire.request("http://example.com", method: .get).responseDecodable(queue: nil, cancel: context)
         }
         
@@ -49,14 +49,14 @@ class AlamofireTests: XCTestCase {
         
         let ex = expectation(description: "")
         
-        let context = CancelContext.makeContext()
+        let context = CancelContext()
         getFixture(context: context).done { fixture in
             XCTAssert(fixture.key1 == "value1", "Value1 found")
             XCTFail()
         }.catch(policy: .allErrors) { error in
             error.isCancelled ? ex.fulfill() : XCTFail()
         }
-        context.cancelAll()
+        context.cancel()
         waitForExpectations(timeout: 1)
         
     }
@@ -70,7 +70,7 @@ class AlamofireTests: XCTestCase {
         
         let ex = expectation(description: "")
         
-        let context = CancelContext.makeContext()
+        let context = CancelContext()
         firstly {
             Alamofire.request("http://example.com", method: .get).responseDecodable(Fixture.self, cancel: context)
         }.done { fixture in
@@ -79,7 +79,7 @@ class AlamofireTests: XCTestCase {
         }.catch(policy: .allErrors) { error in
             error.isCancelled ? ex.fulfill() : XCTFail()
         }
-        context.cancelAll()
+        context.cancel()
         
         waitForExpectations(timeout: 1)
         
