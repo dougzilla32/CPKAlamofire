@@ -19,13 +19,7 @@ class AlamofireTests: XCTestCase {
         let rq = Alamofire.request("http://example.com", method: .get).responseJSON(cancel: context).done { rsp in
             XCTFail()
         }.catch(policy: .allErrors) { error in
-            do {
-                throw error
-            } catch is PromiseCancelledError {
-                ex.fulfill()
-            } catch {
-                XCTFail()
-            }
+            error.isCancelled ? ex.fulfill() : XCTFail()
         }
         context.cancelAll()
         waitForExpectations(timeout: 1)
@@ -60,13 +54,7 @@ class AlamofireTests: XCTestCase {
             XCTAssert(fixture.key1 == "value1", "Value1 found")
             XCTFail()
         }.catch(policy: .allErrors) { error in
-            do {
-                throw error
-            } catch is PromiseCancelledError {
-                ex.fulfill()
-            } catch {
-                XCTFail()
-            }
+            error.isCancelled ? ex.fulfill() : XCTFail()
         }
         context.cancelAll()
         waitForExpectations(timeout: 1)
@@ -89,13 +77,7 @@ class AlamofireTests: XCTestCase {
             XCTAssert(fixture.key1 == "value1", "Value1 found")
             XCTFail()
         }.catch(policy: .allErrors) { error in
-            do {
-                throw error
-            } catch is PromiseCancelledError {
-                ex.fulfill()
-            } catch {
-                XCTFail()
-            }
+            error.isCancelled ? ex.fulfill() : XCTFail()
         }
         context.cancelAll()
         
