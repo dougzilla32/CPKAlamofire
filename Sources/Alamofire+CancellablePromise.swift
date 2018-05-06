@@ -1,11 +1,3 @@
-//
-//  Alamofire+CancellablePromise.swift
-//  CancellablePromiseKit
-//
-//  Created by Doug on 4/28/18.
-//  Copyright © 2018 Doug Stein. All rights reserved.
-//
-
 import Alamofire
 import PromiseKit
 #if !CPKCocoaPods
