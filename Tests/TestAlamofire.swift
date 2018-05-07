@@ -2,7 +2,7 @@ import Alamofire
 import CPKAlamofire
 import OHHTTPStubs
 import PromiseKit
-import CancellablePromiseKit
+import CancelForPromiseKit
 import XCTest
 
 class AlamofireTests: XCTestCase {

@@ -11,8 +11,8 @@
 		63C7FFE91D5C00F2003BAE60 /* Alamofire+CancellablePromise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7FFDB1D5C00F2003BAE60 /* Alamofire+CancellablePromise.swift */; };
 		63C7FFF71D5C020D003BAE60 /* CPKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C7FFA71D5BEE09003BAE60 /* CPKAlamofire.framework */; };
 		912F4C2B209D00360037EF4C /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 912F4C2A209D00360037EF4C /* OHHTTPStubs.framework */; };
-		916D60302099245F00068B1F /* Pods_CancellablePromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 916D602920991FBE00068B1F /* Pods_CancellablePromiseKit.framework */; };
-		916D60312099272D00068B1F /* CancellablePromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 916D602520991F5D00068B1F /* CancellablePromiseKit.framework */; };
+		91436DBA20A0EB86004E99DB /* CancelForPromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91436DB920A0EB86004E99DB /* CancelForPromiseKit.framework */; };
+		91436DBC20A0EB86004E99DB /* Pods_CancelForPromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91436DBB20A0EB86004E99DB /* Pods_CancelForPromiseKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +32,8 @@
 		63C7FFDB1D5C00F2003BAE60 /* Alamofire+CancellablePromise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Alamofire+CancellablePromise.swift"; path = "Sources/Alamofire+CancellablePromise.swift"; sourceTree = SOURCE_ROOT; };
 		63C7FFF21D5C020D003BAE60 /* CPKAFTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CPKAFTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		912F4C2A209D00360037EF4C /* OHHTTPStubs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OHHTTPStubs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91436DB920A0EB86004E99DB /* CancelForPromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CancelForPromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91436DBB20A0EB86004E99DB /* Pods_CancelForPromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_CancelForPromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		916D602520991F5D00068B1F /* CancellablePromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CancellablePromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		916D602920991FBE00068B1F /* Pods_CancellablePromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_CancellablePromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -41,8 +43,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				916D60312099272D00068B1F /* CancellablePromiseKit.framework in Frameworks */,
-				916D60302099245F00068B1F /* Pods_CancellablePromiseKit.framework in Frameworks */,
+				91436DBA20A0EB86004E99DB /* CancelForPromiseKit.framework in Frameworks */,
+				91436DBC20A0EB86004E99DB /* Pods_CancelForPromiseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +99,8 @@
 		916D602020991F3E00068B1F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				91436DB920A0EB86004E99DB /* CancelForPromiseKit.framework */,
+				91436DBB20A0EB86004E99DB /* Pods_CancelForPromiseKit.framework */,
 				912F4C2A209D00360037EF4C /* OHHTTPStubs.framework */,
 				916D602920991FBE00068B1F /* Pods_CancellablePromiseKit.framework */,
 				916D602520991F5D00068B1F /* CancellablePromiseKit.framework */,
