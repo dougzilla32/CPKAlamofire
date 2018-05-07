@@ -1,4 +1,4 @@
-# PromiseKit Alamofire Extensions ![Build Status]
+# CancelForPromiseKit Alamofire Extensions ![Build Status]
 
 This project adds promises to [Alamofire](https://github.com/Alamofire/Alamofire).
 
@@ -7,23 +7,28 @@ This project supports Swift 3.1, 3.2, 4.0 and 4.1.
 ## Usage
 
 ```swift
+let context = CancelContext()
 Alamofire.request("https://httpbin.org/get", method: .GET)
-    .responseJSON().then { json, rsp in
+    .responseJSON(cancel: context).then { json, rsp in
         // 
-    }.catch{ error in
+    }.catch(policy: .allErrors) { error in
         //…
     }
+
+//…
+
+context.cancel()
 ```
 
 Of course, the whole point in promises is composability, so:
 
 ```swift
-func login() -> Promise<User> {
+func login(cancel context: CancelContext) -> Promise<User> {
     let q = DispatchQueue.global()
     UIApplication.shared.isNetworkActivityIndicatorVisible = true
 
     return firstly { in
-        Alamofire.request(url, method: .get).responseData()
+        Alamofire.request(url, method: .get).responseData(cancel: context)
     }.map(on: q) { data, rsp in
         convertToUser(data)
     }.ensure {
@@ -31,11 +36,12 @@ func login() -> Promise<User> {
     }
 }
 
+let context = CancelContext()
 firstly {
-    login()
+    login(cancel: context)
 }.done { user in
     //…
-}.catch { error in
+}.catch(policy: .allErrorsExceptCancellation) { error in
    UIAlertController(/*…*/).show() 
 }
 ```
@@ -44,25 +50,21 @@ firstly {
 
 ```ruby
 # Podfile
-pod 'PromiseKit/Alamofire', '~> 6.0'
+pod 'CancelForPromiseKit/Alamofire', '~> 1.0'
 ```
 
 ```swift
 // `.swift` files
 import PromiseKit
+import CancelForPromiseKit
 import Alamofire
-```
-
-```objc
-// `.m files`
-@import PromiseKit;
-@import Alamofire;
+import CPKAlamofire
 ```
 
 ## Carthage
 
 ```ruby
-github "PromiseKit/Alamofire-" ~> 3.0
+github "CancelForPromiseKit/Alamofire-" ~> 1.0
 ```
 
 The extensions are built into their own framework:
@@ -70,13 +72,9 @@ The extensions are built into their own framework:
 ```swift
 // `.swift` files
 import PromiseKit
-import PMKAlamofire
-```
-
-```objc
-// `.m files`
-@import PromiseKit;
-@import PMKAlamofire;
+import CancelForPromiseKit
+import Alamofire
+import CPKAlamofire
 ```
 
 ## SwiftPM
@@ -84,10 +82,10 @@ import PMKAlamofire
 ```swift
 let package = Package(
     dependencies: [
-        .Target(url: "https://github.com/PromiseKit/Alamofire", majorVersion: 3)
+        .Target(url: "https://github.com/CancelForPromiseKit/Alamofire", majorVersion: 1)
     ]
 )
 ```
 
 
-[Build Status]: https://travis-ci.org/PromiseKit/Alamofire.svg?branch=master
+[Build Status]: https://travis-ci.org/CancelForPromiseKit/Alamofire.svg?branch=master
