@@ -13,8 +13,9 @@ extension Request: CancellableTask {
 }
 
 extension Alamofire.DataRequest {
-    public func response(_: PMKNamespacer, queue: DispatchQueue? = nil, cancel: CancelContext) -> Promise<(URLRequest, HTTPURLResponse, Data)> {
-        return Promise(cancel: cancel, task: self) { seal in
+    public func responseCC(_: PMKNamespacer, queue: DispatchQueue? = nil, cancel: CancelContext? = nil) -> Promise<(URLRequest, HTTPURLResponse, Data)> {
+        let cancelContext = cancel ?? CancelContext()
+        return Promise(cancel: cancelContext, task: self) { seal in
             self.response(queue: queue) { rsp in
                 if let error = rsp.error {
                     seal.reject(error)
@@ -27,8 +28,9 @@ extension Alamofire.DataRequest {
         }
     }
     
-    public func responseData(queue: DispatchQueue? = nil, cancel: CancelContext) -> Promise<(data: Data, response: PMKAlamofireDataResponse)> {
-        return Promise(cancel: cancel, task: self) { seal in
+    public func responseDataCC(queue: DispatchQueue? = nil, cancel: CancelContext? = nil) -> Promise<(data: Data, response: PMKAlamofireDataResponse)> {
+        let cancelContext = cancel ?? CancelContext()
+        return Promise(cancel: cancelContext, task: self) { seal in
             self.responseData(queue: queue) { response in
                 switch response.result {
                 case .success(let value):
@@ -40,8 +42,9 @@ extension Alamofire.DataRequest {
         }
     }
     
-    public func responseString(queue: DispatchQueue? = nil, cancel: CancelContext) -> Promise<(string: String, response: PMKAlamofireDataResponse)> {
-        return Promise(cancel: cancel, task: self) { seal in
+    public func responseStringCC(queue: DispatchQueue? = nil, cancel: CancelContext? = nil) -> Promise<(string: String, response: PMKAlamofireDataResponse)> {
+        let cancelContext = cancel ?? CancelContext()
+        return Promise(cancel: cancelContext, task: self) { seal in
             self.responseString(queue: queue) { response in
                 switch response.result {
                 case .success(let value):
@@ -53,8 +56,9 @@ extension Alamofire.DataRequest {
         }
     }
     
-    public func responseJSON(queue: DispatchQueue? = nil, options: JSONSerialization.ReadingOptions = .allowFragments, cancel: CancelContext) -> Promise<(json: Any, response: PMKAlamofireDataResponse)> {
-        return Promise(cancel: cancel, task: self) { seal in
+    public func responseJSONCC(queue: DispatchQueue? = nil, options: JSONSerialization.ReadingOptions = .allowFragments, cancel: CancelContext? = nil) -> Promise<(json: Any, response: PMKAlamofireDataResponse)> {
+        let cancelContext = cancel ?? CancelContext()
+        return Promise(cancel: cancelContext, task: self) { seal in
             self.responseJSON(queue: queue, options: options) { response in
                 switch response.result {
                 case .success(let value):
@@ -66,8 +70,9 @@ extension Alamofire.DataRequest {
         }
     }
     
-    public func responsePropertyList(queue: DispatchQueue? = nil, options: PropertyListSerialization.ReadOptions = PropertyListSerialization.ReadOptions(), cancel: CancelContext) -> Promise<(plist: Any, response: PMKAlamofireDataResponse)> {
-        return Promise(cancel: cancel, task: self) { seal in
+    public func responsePropertyListCC(queue: DispatchQueue? = nil, options: PropertyListSerialization.ReadOptions = PropertyListSerialization.ReadOptions(), cancel: CancelContext? = nil) -> Promise<(plist: Any, response: PMKAlamofireDataResponse)> {
+        let cancelContext = cancel ?? CancelContext()
+        return Promise(cancel: cancelContext, task: self) { seal in
             self.responsePropertyList(queue: queue, options: options) { response in
                 switch response.result {
                 case .success(let value):
@@ -87,8 +92,9 @@ extension Alamofire.DataRequest {
      - Parameter queue: DispatchQueue, by default nil
      - Parameter decoder: JSONDecoder, by default JSONDecoder()
      */
-    public func responseDecodable<T: Decodable>(queue: DispatchQueue? = nil, decoder: JSONDecoder = JSONDecoder(), cancel: CancelContext) -> Promise<T> {
-        return Promise(cancel: cancel, task: self) { seal in
+    public func responseDecodableCC<T: Decodable>(queue: DispatchQueue? = nil, decoder: JSONDecoder = JSONDecoder(), cancel: CancelContext? = nil) -> Promise<T> {
+        let cancelContext = cancel ?? CancelContext()
+        return Promise(cancel: cancelContext, task: self) { seal in
             self.responseData(queue: queue) { response in
                 switch response.result {
                 case .success(let value):
@@ -111,8 +117,9 @@ extension Alamofire.DataRequest {
      - Parameter queue: DispatchQueue, by default nil
      - Parameter decoder: JSONDecoder, by default JSONDecoder()
      */
-    public func responseDecodable<T: Decodable>(_ type: T.Type, queue: DispatchQueue? = nil, decoder: JSONDecoder = JSONDecoder(), cancel: CancelContext) -> Promise<T> {
-        return Promise(cancel: cancel, task: self) { seal in
+    public func responseDecodableCC<T: Decodable>(_ type: T.Type, queue: DispatchQueue? = nil, decoder: JSONDecoder = JSONDecoder(), cancel: CancelContext? = nil) -> Promise<T> {
+        let cancelContext = cancel ?? CancelContext()
+        return Promise(cancel: cancelContext, task: self) { seal in
             self.responseData(queue: queue) { response in
                 switch response.result {
                 case .success(let value):
@@ -131,8 +138,9 @@ extension Alamofire.DataRequest {
 }
 
 extension Alamofire.DownloadRequest {
-    public func response(_: PMKNamespacer, queue: DispatchQueue? = nil, cancel: CancelContext) -> Promise<DefaultDownloadResponse> {
-        return Promise(cancel: cancel, task: self) { seal in
+    public func responseCC(_: PMKNamespacer, queue: DispatchQueue? = nil, cancel: CancelContext? = nil) -> Promise<DefaultDownloadResponse> {
+        let cancelContext = cancel ?? CancelContext()
+        return Promise(cancel: cancelContext, task: self) { seal in
             self.response(queue: queue) { response in
                 if let error = response.error {
                     seal.reject(error)
@@ -143,8 +151,9 @@ extension Alamofire.DownloadRequest {
         }
     }
     
-    public func responseData(queue: DispatchQueue? = nil, cancel: CancelContext) -> Promise<DownloadResponse<Data>> {
-        return Promise(cancel: cancel, task: self) { seal in
+    public func responseDataCC(queue: DispatchQueue? = nil, cancel: CancelContext? = nil) -> Promise<DownloadResponse<Data>> {
+        let cancelContext = cancel ?? CancelContext()
+        return Promise(cancel: cancelContext, task: self) { seal in
             self.responseData(queue: queue) { response in
                 switch response.result {
                 case .success:

@@ -16,9 +16,11 @@ class AlamofireTests: XCTestCase {
         let ex = expectation(description: "")
         
         let context = CancelContext()
-        let rq = Alamofire.request("http://example.com", method: .get).responseJSON(cancel: context).done { rsp in
+        firstlyCC(cancel: context) {
+            Alamofire.request("http://example.com", method: .get).responseJSONCC()
+        }.doneCC { rsp in
             XCTFail()
-        }.catch(policy: .allErrors) { error in
+        }.catchCC(policy: .allErrors) { error in
             error.isCancelled ? ex.fulfill() : XCTFail()
         }
         context.cancel()
@@ -38,7 +40,7 @@ class AlamofireTests: XCTestCase {
     func testDecodable1() {
         
         func getFixture(context: CancelContext) -> Promise<Fixture> {
-            return Alamofire.request("http://example.com", method: .get).responseDecodable(queue: nil, cancel: context)
+            return Alamofire.request("http://example.com", method: .get).responseDecodableCC(queue: nil, cancel: context)
         }
         
         let json: NSDictionary = ["key1": "value1", "key2": ["value2A", "value2B"]]
@@ -50,10 +52,10 @@ class AlamofireTests: XCTestCase {
         let ex = expectation(description: "")
         
         let context = CancelContext()
-        getFixture(context: context).done { fixture in
+        getFixture(context: context).doneCC { fixture in
             XCTAssert(fixture.key1 == "value1", "Value1 found")
             XCTFail()
-        }.catch(policy: .allErrors) { error in
+        }.catchCC(policy: .allErrors) { error in
             error.isCancelled ? ex.fulfill() : XCTFail()
         }
         context.cancel()
@@ -71,12 +73,12 @@ class AlamofireTests: XCTestCase {
         let ex = expectation(description: "")
         
         let context = CancelContext()
-        firstly {
-            Alamofire.request("http://example.com", method: .get).responseDecodable(Fixture.self, cancel: context)
-        }.done { fixture in
+        firstlyCC(cancel: context) {
+            Alamofire.request("http://example.com", method: .get).responseDecodableCC(Fixture.self)
+        }.doneCC { fixture in
             XCTAssert(fixture.key1 == "value1", "Value1 found")
             XCTFail()
-        }.catch(policy: .allErrors) { error in
+        }.catchCC(policy: .allErrors) { error in
             error.isCancelled ? ex.fulfill() : XCTFail()
         }
         context.cancel()
