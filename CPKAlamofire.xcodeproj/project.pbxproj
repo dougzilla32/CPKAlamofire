@@ -30,6 +30,8 @@
 		63C7FFA71D5BEE09003BAE60 /* CPKAlamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CPKAlamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63C7FFDB1D5C00F2003BAE60 /* Alamofire+CancellablePromise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Alamofire+CancellablePromise.swift"; path = "Sources/Alamofire+CancellablePromise.swift"; sourceTree = SOURCE_ROOT; };
 		63C7FFF21D5C020D003BAE60 /* CPKAFTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CPKAFTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		91195B4D20AD57F900074F63 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		91195B4E20AD586800074F63 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		91353BAE20A365E400254354 /* README.markdown */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
 		91436DB920A0EB86004E99DB /* CancelForPromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CancelForPromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91436DBB20A0EB86004E99DB /* Pods_CancelForPromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_CancelForPromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +82,7 @@
 		63C7FFA91D5BEE09003BAE60 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				91195B4D20AD57F900074F63 /* .swiftlint.yml */,
 				63C7FFDB1D5C00F2003BAE60 /* Alamofire+CancellablePromise.swift */,
 			);
 			path = Sources;
@@ -88,6 +91,7 @@
 		63C7FFF31D5C020D003BAE60 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				91195B4E20AD586800074F63 /* .swiftlint.yml */,
 				63C700021D5C021F003BAE60 /* TestAlamofire.swift */,
 			);
 			path = Tests;
@@ -122,6 +126,7 @@
 				63C7FFA21D5BEE09003BAE60 /* Sources */,
 				63C7FFA31D5BEE09003BAE60 /* Frameworks */,
 				63C7FFA41D5BEE09003BAE60 /* Headers */,
+				91195B4B20AD575800074F63 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -138,6 +143,7 @@
 			buildPhases = (
 				63C7FFEE1D5C020D003BAE60 /* Sources */,
 				63C7FFEF1D5C020D003BAE60 /* Frameworks */,
+				91195B4C20AD578E00074F63 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -188,6 +194,35 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		91195B4B20AD575800074F63 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n(cd Sources ; swiftlint)\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		91195B4C20AD578E00074F63 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n(cd Tests ; swiftlint)\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		63C7FFA21D5BEE09003BAE60 /* Sources */ = {

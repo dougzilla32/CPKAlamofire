@@ -6,9 +6,7 @@ import CancelForPromiseKit
 
 extension Request: CancellableTask {
     public var isCancelled: Bool {
-        get {
-            return task?.state == .canceling
-        }
+        return task?.state == .canceling
     }
 }
 

@@ -18,10 +18,10 @@ class AlamofireTests: XCTestCase {
         let context = CancelContext()
         firstlyCC(cancel: context) {
             Alamofire.request("http://example.com", method: .get).responseJSONCC()
-        }.doneCC { rsp in
-            XCTFail()
+        }.doneCC { _ in
+            XCTFail("failed to cancel request")
         }.catchCC(policy: .allErrors) { error in
-            error.isCancelled ? ex.fulfill() : XCTFail()
+            error.isCancelled ? ex.fulfill() : XCTFail("Error: \(error)")
         }
         context.cancel()
         waitForExpectations(timeout: 1)
@@ -54,9 +54,9 @@ class AlamofireTests: XCTestCase {
         let context = CancelContext()
         getFixture(context: context).doneCC { fixture in
             XCTAssert(fixture.key1 == "value1", "Value1 found")
-            XCTFail()
+            XCTFail("failed to cancel request")
         }.catchCC(policy: .allErrors) { error in
-            error.isCancelled ? ex.fulfill() : XCTFail()
+            error.isCancelled ? ex.fulfill() : XCTFail("Error: \(error)")
         }
         context.cancel()
         waitForExpectations(timeout: 1)
@@ -77,9 +77,9 @@ class AlamofireTests: XCTestCase {
             Alamofire.request("http://example.com", method: .get).responseDecodableCC(Fixture.self)
         }.doneCC { fixture in
             XCTAssert(fixture.key1 == "value1", "Value1 found")
-            XCTFail()
+            XCTFail("failed to cancel request")
         }.catchCC(policy: .allErrors) { error in
-            error.isCancelled ? ex.fulfill() : XCTFail()
+            error.isCancelled ? ex.fulfill() : XCTFail("Error: \(error)")
         }
         context.cancel()
         
