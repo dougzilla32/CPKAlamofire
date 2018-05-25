@@ -1,7 +1,7 @@
 import Alamofire
 import PromiseKit
 #if !CPKCocoaPods
-@testable import CancelForPromiseKit
+import CancelForPromiseKit
 #endif
 
 extension Request: CancellableTask {
