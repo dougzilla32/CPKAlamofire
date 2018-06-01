@@ -7,13 +7,12 @@ This project supports Swift 3.1, 3.2, 4.0 and 4.1.
 ## Usage
 
 ```swift
-let context = CancelContext()
-Alamofire.request("https://httpbin.org/get", method: .GET)
-    .responseJSON(cancel: context).then { json, rsp in
+let context = Alamofire.request("https://httpbin.org/get", method: .GET)
+    .responseJSONCC().then { json, rsp in
         // 
     }.catch(policy: .allErrors) { error in
         //…
-    }
+    }.cancelContext
 
 //…
 
@@ -23,12 +22,12 @@ context.cancel()
 Of course, the whole point in promises is composability, so:
 
 ```swift
-func login(cancel context: CancelContext) -> Promise<User> {
+func login() -> CancellablePromise<User> {
     let q = DispatchQueue.global()
     UIApplication.shared.isNetworkActivityIndicatorVisible = true
 
     return firstly { in
-        Alamofire.request(url, method: .get).responseData(cancel: context)
+        Alamofire.request(url, method: .get).responseDataCC()
     }.map(on: q) { data, rsp in
         convertToUser(data)
     }.ensure {
@@ -36,14 +35,17 @@ func login(cancel context: CancelContext) -> Promise<User> {
     }
 }
 
-let context = CancelContext()
-firstly {
-    login(cancel: context)
+let context = firstly {
+    login()
 }.done { user in
     //…
 }.catch(policy: .allErrorsExceptCancellation) { error in
    UIAlertController(/*…*/).show() 
-}
+}.cancelContext
+
+//…
+
+context.cancel()
 ```
 
 ## CococaPods
