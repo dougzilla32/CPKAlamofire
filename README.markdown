@@ -1,6 +1,6 @@
 # CancelForPromiseKit Alamofire Extensions ![Build Status]
 
-This project adds promises to [Alamofire](https://github.com/Alamofire/Alamofire).
+This project adds cancellable promises to [PromiseKit's Alamofire Extension].
 
 This project supports Swift 3.1, 3.2, 4.0 and 4.1.
 
@@ -84,10 +84,11 @@ import CPKAlamofire
 ```swift
 let package = Package(
     dependencies: [
-        .Target(url: "https://github.com/CancelForPromiseKit/Alamofire", majorVersion: 1)
+        .Target(url: "https://github.com/dougzilla32/CancelForPromiseKit-Alamofire", majorVersion: 1)
     ]
 )
 ```
 
 
-[Build Status]: https://travis-ci.org/CancelForPromiseKit/Alamofire.svg?branch=master
+[Build Status]: https://travis-ci.org/dougzilla32/CancelForPromiseKit-Alamofire.svg?branch=master
+[PromiseKit's Alamofire Extension]: https://github.com/PromiseKit/Alamofire-
