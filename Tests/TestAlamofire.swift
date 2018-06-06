@@ -5,6 +5,12 @@ import PromiseKit
 import CancelForPromiseKit
 import XCTest
 
+// Workaround for error with missing libswiftContacts.dylib, this import causes the
+// library to be included as needed
+#if os(iOS) || os(watchOS) || os(OSX)
+import class Contacts.CNPostalAddress
+#endif
+
 class AlamofireTests: XCTestCase {
     func test() {
         let json: NSDictionary = ["key1": "value1", "key2": ["value2A", "value2B"]]
