@@ -32,6 +32,7 @@
 		63C7FFF21D5C020D003BAE60 /* CPKAFTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CPKAFTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		91195B4D20AD57F900074F63 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		91195B4E20AD586800074F63 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		912C814D20CF49CB0097534B /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		91353BAE20A365E400254354 /* README.markdown */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
 		91436DB920A0EB86004E99DB /* CancelForPromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CancelForPromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91436DBB20A0EB86004E99DB /* Pods_CancelForPromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_CancelForPromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				91353BAE20A365E400254354 /* README.markdown */,
+				912C814D20CF49CB0097534B /* .travis.yml */,
 				63C700091D5C0253003BAE60 /* Info.plist */,
 				63C7FFA91D5BEE09003BAE60 /* Sources */,
 				63C7FFF31D5C020D003BAE60 /* Tests */,
