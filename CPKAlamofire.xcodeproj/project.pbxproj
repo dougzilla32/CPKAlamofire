@@ -11,7 +11,6 @@
 		63C7FFE91D5C00F2003BAE60 /* Alamofire+CancellablePromise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7FFDB1D5C00F2003BAE60 /* Alamofire+CancellablePromise.swift */; };
 		63C7FFF71D5C020D003BAE60 /* CPKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C7FFA71D5BEE09003BAE60 /* CPKAlamofire.framework */; };
 		91436DBA20A0EB86004E99DB /* CancelForPromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91436DB920A0EB86004E99DB /* CancelForPromiseKit.framework */; };
-		91436DBC20A0EB86004E99DB /* Pods_CancelForPromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91436DBB20A0EB86004E99DB /* Pods_CancelForPromiseKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,9 +32,12 @@
 		91195B4D20AD57F900074F63 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		91195B4E20AD586800074F63 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		912C814D20CF49CB0097534B /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
+		912C81DD20D86B940097534B /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		912C81DE20D86B9B0097534B /* Carthage.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Carthage.xcconfig; sourceTree = "<group>"; };
+		912C81DF20D86C590097534B /* Cartfile.private */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile.private; sourceTree = "<group>"; };
+		912C81E120D86E870097534B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		91353BAE20A365E400254354 /* README.markdown */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
 		91436DB920A0EB86004E99DB /* CancelForPromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CancelForPromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		91436DBB20A0EB86004E99DB /* Pods_CancelForPromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_CancelForPromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91B92B2520D589F400CCEADB /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -45,7 +47,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				91436DBA20A0EB86004E99DB /* CancelForPromiseKit.framework in Frameworks */,
-				91436DBC20A0EB86004E99DB /* Pods_CancelForPromiseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,11 +65,9 @@
 			isa = PBXGroup;
 			children = (
 				91353BAE20A365E400254354 /* README.markdown */,
-				912C814D20CF49CB0097534B /* .travis.yml */,
-				63C700091D5C0253003BAE60 /* Info.plist */,
-				91B92B2520D589F400CCEADB /* Package.swift */,
 				63C7FFA91D5BEE09003BAE60 /* Sources */,
 				63C7FFF31D5C020D003BAE60 /* Tests */,
+				912C81E020D86DC30097534B /* Config */,
 				63C7FFA81D5BEE09003BAE60 /* Products */,
 				916D602020991F3E00068B1F /* Frameworks */,
 			);
@@ -101,11 +100,24 @@
 			path = Tests;
 			sourceTree = SOURCE_ROOT;
 		};
+		912C81E020D86DC30097534B /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				912C81DD20D86B940097534B /* Cartfile */,
+				912C81DF20D86C590097534B /* Cartfile.private */,
+				912C81DE20D86B9B0097534B /* Carthage.xcconfig */,
+				91B92B2520D589F400CCEADB /* Package.swift */,
+				912C814D20CF49CB0097534B /* .travis.yml */,
+				63C700091D5C0253003BAE60 /* Info.plist */,
+				912C81E120D86E870097534B /* .gitignore */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
 		916D602020991F3E00068B1F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				91436DB920A0EB86004E99DB /* CancelForPromiseKit.framework */,
-				91436DBB20A0EB86004E99DB /* Pods_CancelForPromiseKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -148,6 +160,7 @@
 				63C7FFEE1D5C020D003BAE60 /* Sources */,
 				63C7FFEF1D5C020D003BAE60 /* Frameworks */,
 				91195B4C20AD578E00074F63 /* SwiftLint */,
+				912C81E520D879020097534B /* Embed Carthage Frameworks */,
 			);
 			buildRules = (
 			);
@@ -230,6 +243,25 @@
 			shellScript = "if which swiftlint >/dev/null; then\n(cd Tests ; swiftlint)\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		912C81E520D879020097534B /* Embed Carthage Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				PromiseKit,
+				PMKAlamofire,
+				CancelForPromiseKit,
+				OHHTTPStubs,
+				Alamofire,
+			);
+			name = "Embed Carthage Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "case \"$PLATFORM_NAME\" in\n    macosx) plat=Mac;;\n    iphone*) plat=iOS;;\n    watch*) plat=watchOS;;\n    appletv*) plat=tvOS;;\n    *) echo \"error: Unknown PLATFORM_NAME: $PLATFORM_NAME\"; exit 1;;\nesac\n\nCARTHAGE_BUILD_DIR=\"$SRCROOT\"/Carthage/Build/$plat\nif [ -d \"$CARTHAGE_BUILD_DIR\" ] ; then\n    for (( n = 0; n < SCRIPT_INPUT_FILE_COUNT; n++ )); do\n        VAR=SCRIPT_INPUT_FILE_$n\n        framework=$(basename \"${!VAR}\")\n        export SCRIPT_INPUT_FILE_$n=\"$CARTHAGE_BUILD_DIR\"/\"$framework\".framework\n    done\n\n    /usr/local/bin/carthage copy-frameworks || exit\n\n    for (( n = 0; n < SCRIPT_INPUT_FILE_COUNT; n++ )); do\n        VAR=SCRIPT_INPUT_FILE_$n\n        source=${!VAR}.dSYM\n        dest=${BUILT_PRODUCTS_DIR}/$(basename \"$source\")\n        ditto \"$source\" \"$dest\" || exit\n    done\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -262,6 +294,7 @@
 /* Begin XCBuildConfiguration section */
 		63C7FFAD1D5BEE09003BAE60 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 912C81DE20D86B9B0097534B /* Carthage.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -297,7 +330,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/OHHTTPStubs\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromiseKit\"",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -324,13 +356,13 @@
 					"-framework",
 					"\"Alamofire\"",
 					"-framework",
-					"\"OHHTTPStubs\"",
-					"-framework",
 					"\"PromiseKit\"",
+					"-framework",
+					"\"PMKAlamofire\"",
 				);
 				PODS_BUILD_DIR = "${BUILD_DIR}";
 				PODS_CONFIGURATION_BUILD_DIR = "${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
-				PRODUCT_BUNDLE_IDENTIFIER = org.promisekit.Foundation;
+				PRODUCT_BUNDLE_IDENTIFIER = org.cpk.Alamofire;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos watchsimulator watchos macosx appletvsimulator appletvos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -345,6 +377,7 @@
 		};
 		63C7FFAE1D5BEE09003BAE60 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 912C81DE20D86B9B0097534B /* Carthage.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -380,7 +413,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/OHHTTPStubs\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromiseKit\"",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -400,13 +432,13 @@
 					"-framework",
 					"\"Alamofire\"",
 					"-framework",
-					"\"OHHTTPStubs\"",
-					"-framework",
 					"\"PromiseKit\"",
+					"-framework",
+					"\"PMKAlamofire\"",
 				);
 				PODS_BUILD_DIR = "${BUILD_DIR}";
 				PODS_CONFIGURATION_BUILD_DIR = "${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
-				PRODUCT_BUNDLE_IDENTIFIER = org.promisekit.Foundation;
+				PRODUCT_BUNDLE_IDENTIFIER = org.cpk.Alamofire;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos watchsimulator watchos macosx appletvsimulator appletvos";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
@@ -456,12 +488,25 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromiseKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/OHHTTPStubs\"",
+				);
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"PromiseKit\"",
+					"-framework",
+					"\"OHHTTPStubs\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SUPPRESS_WARNINGS = YES;
 			};
 			name = Debug;
 		};
@@ -469,11 +514,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				GCC_WARN_INHIBIT_ALL_WARNINGS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromiseKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/OHHTTPStubs\"",
+				);
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"PromiseKit\"",
+					"-framework",
+					"\"OHHTTPStubs\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_SUPPRESS_WARNINGS = YES;
 			};
 			name = Release;
 		};
