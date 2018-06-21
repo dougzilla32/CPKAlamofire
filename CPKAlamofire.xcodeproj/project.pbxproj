@@ -11,10 +11,21 @@
 		63C7FFE91D5C00F2003BAE60 /* Alamofire+CancellablePromise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7FFDB1D5C00F2003BAE60 /* Alamofire+CancellablePromise.swift */; };
 		63C7FFF71D5C020D003BAE60 /* CPKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C7FFA71D5BEE09003BAE60 /* CPKAlamofire.framework */; };
 		91436DBA20A0EB86004E99DB /* CancelForPromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91436DB920A0EB86004E99DB /* CancelForPromiseKit.framework */; };
+		91D2C04820D9E415005E5F0E /* Alamofire+CancellablePromise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7FFDB1D5C00F2003BAE60 /* Alamofire+CancellablePromise.swift */; };
+		91D2C04A20D9E415005E5F0E /* CancelForPromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91436DB920A0EB86004E99DB /* CancelForPromiseKit.framework */; };
+		91D2C05620D9E4BE005E5F0E /* TestAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C700021D5C021F003BAE60 /* TestAlamofire.swift */; };
+		91D2C05820D9E4BE005E5F0E /* CPKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C7FFA71D5BEE09003BAE60 /* CPKAlamofire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		63C7FFF81D5C020D003BAE60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63C7FF9E1D5BEE09003BAE60 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 63C7FFA61D5BEE09003BAE60;
+			remoteInfo = PMKFoundation;
+		};
+		91D2C05420D9E4BE005E5F0E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 63C7FF9E1D5BEE09003BAE60 /* Project object */;
 			proxyType = 1;
@@ -39,6 +50,8 @@
 		91353BAE20A365E400254354 /* README.markdown */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
 		91436DB920A0EB86004E99DB /* CancelForPromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CancelForPromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91B92B2520D589F400CCEADB /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		91D2C05020D9E415005E5F0E /* CPKAlamofireCT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CPKAlamofireCT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91D2C05E20D9E4BE005E5F0E /* CPKAFTestsCT.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CPKAFTestsCT.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +68,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				63C7FFF71D5C020D003BAE60 /* CPKAlamofire.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91D2C04920D9E415005E5F0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91D2C04A20D9E415005E5F0E /* CancelForPromiseKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91D2C05720D9E4BE005E5F0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91D2C05820D9E4BE005E5F0E /* CPKAlamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +107,8 @@
 			children = (
 				63C7FFA71D5BEE09003BAE60 /* CPKAlamofire.framework */,
 				63C7FFF21D5C020D003BAE60 /* CPKAFTests.xctest */,
+				91D2C05020D9E415005E5F0E /* CPKAlamofireCT.framework */,
+				91D2C05E20D9E4BE005E5F0E /* CPKAFTestsCT.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,6 +163,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		91D2C04B20D9E415005E5F0E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -160,7 +198,6 @@
 				63C7FFEE1D5C020D003BAE60 /* Sources */,
 				63C7FFEF1D5C020D003BAE60 /* Frameworks */,
 				91195B4C20AD578E00074F63 /* SwiftLint */,
-				912C81E520D879020097534B /* Embed Carthage Frameworks */,
 			);
 			buildRules = (
 			);
@@ -170,6 +207,43 @@
 			name = CPKAFTests;
 			productName = PMKTests/NS;
 			productReference = 63C7FFF21D5C020D003BAE60 /* CPKAFTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		91D2C04620D9E415005E5F0E /* CPKAlamofireCT */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91D2C04D20D9E415005E5F0E /* Build configuration list for PBXNativeTarget "CPKAlamofireCT" */;
+			buildPhases = (
+				91D2C04720D9E415005E5F0E /* Sources */,
+				91D2C04920D9E415005E5F0E /* Frameworks */,
+				91D2C04B20D9E415005E5F0E /* Headers */,
+				91D2C04C20D9E415005E5F0E /* SwiftLint */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CPKAlamofireCT;
+			productName = "PMK+UIKit";
+			productReference = 91D2C05020D9E415005E5F0E /* CPKAlamofireCT.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		91D2C05220D9E4BE005E5F0E /* CPKAFTestsCT */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91D2C05B20D9E4BE005E5F0E /* Build configuration list for PBXNativeTarget "CPKAFTestsCT" */;
+			buildPhases = (
+				91D2C05520D9E4BE005E5F0E /* Sources */,
+				91D2C05720D9E4BE005E5F0E /* Frameworks */,
+				91D2C05920D9E4BE005E5F0E /* SwiftLint */,
+				91D2C05A20D9E4BE005E5F0E /* Embed Carthage Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				91D2C05320D9E4BE005E5F0E /* PBXTargetDependency */,
+			);
+			name = CPKAFTestsCT;
+			productName = PMKTests/NS;
+			productReference = 91D2C05E20D9E4BE005E5F0E /* CPKAFTestsCT.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -207,7 +281,9 @@
 			projectRoot = "";
 			targets = (
 				63C7FFA61D5BEE09003BAE60 /* CPKAlamofire */,
+				91D2C04620D9E415005E5F0E /* CPKAlamofireCT */,
 				63C7FFF11D5C020D003BAE60 /* CPKAFTests */,
+				91D2C05220D9E4BE005E5F0E /* CPKAFTestsCT */,
 			);
 		};
 /* End PBXProject section */
@@ -243,7 +319,37 @@
 			shellScript = "if which swiftlint >/dev/null; then\n(cd Tests ; swiftlint)\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		912C81E520D879020097534B /* Embed Carthage Frameworks */ = {
+		91D2C04C20D9E415005E5F0E /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n(cd Sources ; swiftlint)\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		91D2C05920D9E4BE005E5F0E /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n(cd Tests ; swiftlint)\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		91D2C05A20D9E4BE005E5F0E /* Embed Carthage Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -282,6 +388,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		91D2C04720D9E415005E5F0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91D2C04820D9E415005E5F0E /* Alamofire+CancellablePromise.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91D2C05520D9E4BE005E5F0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91D2C05620D9E4BE005E5F0E /* TestAlamofire.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -289,6 +411,11 @@
 			isa = PBXTargetDependency;
 			target = 63C7FFA61D5BEE09003BAE60 /* CPKAlamofire */;
 			targetProxy = 63C7FFF81D5C020D003BAE60 /* PBXContainerItemProxy */;
+		};
+		91D2C05320D9E4BE005E5F0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 63C7FFA61D5BEE09003BAE60 /* CPKAlamofire */;
+			targetProxy = 91D2C05420D9E4BE005E5F0E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -358,8 +485,6 @@
 					"\"Alamofire\"",
 					"-framework",
 					"\"PromiseKit\"",
-					"-framework",
-					"\"PMKAlamofire\"",
 					"-Xlinker",
 					"-w",
 				);
@@ -436,8 +561,6 @@
 					"\"Alamofire\"",
 					"-framework",
 					"\"PromiseKit\"",
-					"-framework",
-					"\"PMKAlamofire\"",
 					"-Xlinker",
 					"-w",
 				);
@@ -540,6 +663,116 @@
 			};
 			name = Release;
 		};
+		91D2C04E20D9E415005E5F0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"PromiseKit\"",
+					"-Xlinker",
+					"-w",
+					"-framework",
+					PMKAlamofire,
+				);
+				PRODUCT_MODULE_NAME = "${TARGET_NAME}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		91D2C04F20D9E415005E5F0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"PromiseKit\"",
+					"-Xlinker",
+					"-w",
+					"-framework",
+					PMKAlamofire,
+				);
+				PRODUCT_MODULE_NAME = "${TARGET_NAME}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		91D2C05C20D9E4BE005E5F0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromiseKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/OHHTTPStubs\"",
+				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"PromiseKit\"",
+					"-framework",
+					"\"OHHTTPStubs\"",
+					"-framework",
+					PMKAlamofire,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		91D2C05D20D9E4BE005E5F0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromiseKit\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/OHHTTPStubs\"",
+				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"PromiseKit\"",
+					"-framework",
+					"\"OHHTTPStubs\"",
+					"-framework",
+					PMKAlamofire,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -566,6 +799,24 @@
 			buildConfigurations = (
 				63C7FFFB1D5C020D003BAE60 /* Debug */,
 				63C7FFFC1D5C020D003BAE60 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		91D2C04D20D9E415005E5F0E /* Build configuration list for PBXNativeTarget "CPKAlamofireCT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91D2C04E20D9E415005E5F0E /* Debug */,
+				91D2C04F20D9E415005E5F0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		91D2C05B20D9E4BE005E5F0E /* Build configuration list for PBXNativeTarget "CPKAFTestsCT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91D2C05C20D9E4BE005E5F0E /* Debug */,
+				91D2C05D20D9E4BE005E5F0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
