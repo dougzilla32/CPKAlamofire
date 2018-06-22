@@ -27,5 +27,5 @@ install:
   - xcodebuild -scheme CPKAlamofireCT -quiet -destination "$DST" SWIFT_VERSION=$SWFT SWIFT_TREAT_WARNINGS_AS_ERRORS=YES build-for-testing -enableCodeCoverage YES
 script:
   - if [ "$PLAT" != "watchOS" ]; then
-      xcodebuild -scheme CPKAlamofireCT -quiet -destination "$DST" SWIFT_VERSION=$SWFT test -enableCodeCoverage YES;
+      xcodebuild -scheme CPKAlamofireCT -quiet -destination "$DST" SWIFT_VERSION=$SWFT SWIFT_TREAT_WARNINGS_AS_ERRORS=YES test -enableCodeCoverage YES;
     fi
