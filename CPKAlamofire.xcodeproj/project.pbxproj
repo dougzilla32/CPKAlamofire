@@ -618,18 +618,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromiseKit\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/OHHTTPStubs\"",
 				);
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-framework",
-					"\"Alamofire\"",
-					"-framework",
-					"\"PromiseKit\"",
 					"-framework",
 					"\"OHHTTPStubs\"",
 				);
@@ -644,18 +638,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromiseKit\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/OHHTTPStubs\"",
 				);
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-framework",
-					"\"Alamofire\"",
-					"-framework",
-					"\"PromiseKit\"",
 					"-framework",
 					"\"OHHTTPStubs\"",
 				);
@@ -676,12 +664,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-framework",
-					"\"Alamofire\"",
-					"-framework",
-					"\"PromiseKit\"",
-					"-Xlinker",
-					"-w",
 					"-framework",
 					PMKAlamofire,
 				);
@@ -705,12 +687,6 @@
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
-					"\"Alamofire\"",
-					"-framework",
-					"\"PromiseKit\"",
-					"-Xlinker",
-					"-w",
-					"-framework",
 					PMKAlamofire,
 				);
 				PRODUCT_MODULE_NAME = "${TARGET_NAME}";
@@ -724,18 +700,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromiseKit\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/OHHTTPStubs\"",
 				);
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-framework",
-					"\"Alamofire\"",
-					"-framework",
-					"\"PromiseKit\"",
 					"-framework",
 					"\"OHHTTPStubs\"",
 					"-framework",
@@ -752,18 +722,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire\"",
-					"\"${PODS_CONFIGURATION_BUILD_DIR}/PromiseKit\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/OHHTTPStubs\"",
 				);
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
-					"-framework",
-					"\"Alamofire\"",
-					"-framework",
-					"\"PromiseKit\"",
 					"-framework",
 					"\"OHHTTPStubs\"",
 					"-framework",
