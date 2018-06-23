@@ -14,7 +14,7 @@
 		91D2C04820D9E415005E5F0E /* Alamofire+CancellablePromise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7FFDB1D5C00F2003BAE60 /* Alamofire+CancellablePromise.swift */; };
 		91D2C04A20D9E415005E5F0E /* CancelForPromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91436DB920A0EB86004E99DB /* CancelForPromiseKit.framework */; };
 		91D2C05620D9E4BE005E5F0E /* TestAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C700021D5C021F003BAE60 /* TestAlamofire.swift */; };
-		91D2C05820D9E4BE005E5F0E /* CPKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C7FFA71D5BEE09003BAE60 /* CPKAlamofire.framework */; };
+		91DF53BE20DE2A68001CBF46 /* CPKAlamofireCT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91D2C05020D9E415005E5F0E /* CPKAlamofireCT.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,12 +25,12 @@
 			remoteGlobalIDString = 63C7FFA61D5BEE09003BAE60;
 			remoteInfo = PMKFoundation;
 		};
-		91D2C05420D9E4BE005E5F0E /* PBXContainerItemProxy */ = {
+		91DF53BA20DE2930001CBF46 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 63C7FF9E1D5BEE09003BAE60 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 63C7FFA61D5BEE09003BAE60;
-			remoteInfo = PMKFoundation;
+			remoteGlobalIDString = 91D2C04620D9E415005E5F0E;
+			remoteInfo = CPKAlamofireCT;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -83,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91D2C05820D9E4BE005E5F0E /* CPKAlamofire.framework in Frameworks */,
+				91DF53BE20DE2A68001CBF46 /* CPKAlamofireCT.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,7 +239,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				91D2C05320D9E4BE005E5F0E /* PBXTargetDependency */,
+				91DF53BB20DE2930001CBF46 /* PBXTargetDependency */,
 			);
 			name = CPKAFTestsCT;
 			productName = PMKTests/NS;
@@ -412,10 +412,10 @@
 			target = 63C7FFA61D5BEE09003BAE60 /* CPKAlamofire */;
 			targetProxy = 63C7FFF81D5C020D003BAE60 /* PBXContainerItemProxy */;
 		};
-		91D2C05320D9E4BE005E5F0E /* PBXTargetDependency */ = {
+		91DF53BB20DE2930001CBF46 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 63C7FFA61D5BEE09003BAE60 /* CPKAlamofire */;
-			targetProxy = 91D2C05420D9E4BE005E5F0E /* PBXContainerItemProxy */;
+			target = 91D2C04620D9E415005E5F0E /* CPKAlamofireCT */;
+			targetProxy = 91DF53BA20DE2930001CBF46 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -669,6 +669,7 @@
 				);
 				PRODUCT_MODULE_NAME = "${TARGET_NAME}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "CPKCarthage DEBUG";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -691,6 +692,7 @@
 				);
 				PRODUCT_MODULE_NAME = "${TARGET_NAME}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = CPKCarthage;
 			};
 			name = Release;
 		};
