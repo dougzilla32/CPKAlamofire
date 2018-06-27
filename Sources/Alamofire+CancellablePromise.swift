@@ -1,8 +1,14 @@
 import Alamofire
 import PromiseKit
 
-#if CPKCarthage || (swift(>=4.1) && canImport(PMKAlamofire))
+#if CPKCarthage
 import PMKAlamofire
+#else
+#if swift(>=4.1)
+#if canImport(PMKAlamofire)
+import PMKAlamofire
+#endif
+#endif
 #endif
 
 #if !CPKCocoaPods
