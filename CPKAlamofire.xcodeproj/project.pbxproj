@@ -14,7 +14,7 @@
 		91D2C04820D9E415005E5F0E /* Alamofire+CancellablePromise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7FFDB1D5C00F2003BAE60 /* Alamofire+CancellablePromise.swift */; };
 		91D2C04A20D9E415005E5F0E /* CancelForPromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91436DB920A0EB86004E99DB /* CancelForPromiseKit.framework */; };
 		91D2C05620D9E4BE005E5F0E /* TestAlamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C700021D5C021F003BAE60 /* TestAlamofire.swift */; };
-		91DF53BE20DE2A68001CBF46 /* CPKAlamofireCT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91D2C05020D9E415005E5F0E /* CPKAlamofireCT.framework */; };
+		91DF53BE20DE2A68001CBF46 /* CPKAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91D2C05020D9E415005E5F0E /* CPKAlamofire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +50,7 @@
 		91353BAE20A365E400254354 /* README.markdown */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
 		91436DB920A0EB86004E99DB /* CancelForPromiseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CancelForPromiseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91B92B2520D589F400CCEADB /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
-		91D2C05020D9E415005E5F0E /* CPKAlamofireCT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CPKAlamofireCT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91D2C05020D9E415005E5F0E /* CPKAlamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CPKAlamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91D2C05E20D9E4BE005E5F0E /* CPKAFTestsCT.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CPKAFTestsCT.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -83,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91DF53BE20DE2A68001CBF46 /* CPKAlamofireCT.framework in Frameworks */,
+				91DF53BE20DE2A68001CBF46 /* CPKAlamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,7 +107,7 @@
 			children = (
 				63C7FFA71D5BEE09003BAE60 /* CPKAlamofire.framework */,
 				63C7FFF21D5C020D003BAE60 /* CPKAFTests.xctest */,
-				91D2C05020D9E415005E5F0E /* CPKAlamofireCT.framework */,
+				91D2C05020D9E415005E5F0E /* CPKAlamofire.framework */,
 				91D2C05E20D9E4BE005E5F0E /* CPKAFTestsCT.xctest */,
 			);
 			name = Products;
@@ -224,7 +224,7 @@
 			);
 			name = CPKAlamofireCT;
 			productName = "PMK+UIKit";
-			productReference = 91D2C05020D9E415005E5F0E /* CPKAlamofireCT.framework */;
+			productReference = 91D2C05020D9E415005E5F0E /* CPKAlamofire.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		91D2C05220D9E4BE005E5F0E /* CPKAFTestsCT */ = {
@@ -667,8 +667,8 @@
 					"-framework",
 					PMKAlamofire,
 				);
-				PRODUCT_MODULE_NAME = "${TARGET_NAME}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = CPKAlamofire;
+				PRODUCT_NAME = CPKAlamofire;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "CPKCarthage DEBUG";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -690,8 +690,8 @@
 					"-framework",
 					PMKAlamofire,
 				);
-				PRODUCT_MODULE_NAME = "${TARGET_NAME}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = CPKAlamofire;
+				PRODUCT_NAME = CPKAlamofire;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = CPKCarthage;
 			};
 			name = Release;
