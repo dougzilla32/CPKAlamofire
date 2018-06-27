@@ -669,7 +669,7 @@
 				);
 				PRODUCT_MODULE_NAME = CPKAlamofire;
 				PRODUCT_NAME = CPKAlamofire;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "CPKCarthage DEBUG";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "Carthage DEBUG";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -692,7 +692,7 @@
 				);
 				PRODUCT_MODULE_NAME = CPKAlamofire;
 				PRODUCT_NAME = CPKAlamofire;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = CPKCarthage;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = Carthage;
 			};
 			name = Release;
 		};

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "91D2C04620D9E415005E5F0E"
-               BuildableName = "CPKAlamofireCT.framework"
+               BuildableName = "CPKAlamofire.framework"
                BlueprintName = "CPKAlamofireCT"
                ReferencedContainer = "container:CPKAlamofire.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "91D2C04620D9E415005E5F0E"
-            BuildableName = "CPKAlamofireCT.framework"
+            BuildableName = "CPKAlamofire.framework"
             BlueprintName = "CPKAlamofireCT"
             ReferencedContainer = "container:CPKAlamofire.xcodeproj">
          </BuildableReference>
@@ -79,7 +79,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "91D2C04620D9E415005E5F0E"
-            BuildableName = "CPKAlamofireCT.framework"
+            BuildableName = "CPKAlamofire.framework"
             BlueprintName = "CPKAlamofireCT"
             ReferencedContainer = "container:CPKAlamofire.xcodeproj">
          </BuildableReference>
@@ -97,7 +97,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "91D2C04620D9E415005E5F0E"
-            BuildableName = "CPKAlamofireCT.framework"
+            BuildableName = "CPKAlamofire.framework"
             BlueprintName = "CPKAlamofireCT"
             ReferencedContainer = "container:CPKAlamofire.xcodeproj">
          </BuildableReference>

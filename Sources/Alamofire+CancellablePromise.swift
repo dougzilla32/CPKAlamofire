@@ -1,7 +1,7 @@
 import Alamofire
 import PromiseKit
 
-#if CPKCarthage
+#if Carthage
 import PMKAlamofire
 #else
 #if swift(>=4.1)

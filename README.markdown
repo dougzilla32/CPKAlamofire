@@ -79,6 +79,12 @@ import Alamofire
 import CPKAlamofire
 ```
 
+To build with Carthage on versions of Swift prior to 4.1, set the 'Carthage' flag in your target's Build settings at the following location. This is necessary to properly import the PMKAlamofire module, which is only defined for Carthage:
+    
+    TARGETS -> [Your target name]:
+        'Swift Compiler - Custom Flags' -> 'Active Compilation Conditions' -> 'Debug'
+        'Swift Compiler - Custom Flags' -> 'Active Compilation Conditions' -> 'Release'
+
 ## SwiftPM
 
 ```swift
@@ -90,5 +96,5 @@ let package = Package(
 ```
 
 
-[Build Status]: https://travis-ci.org/dougzilla32/CancelForPromiseKit-Alamofire.svg?branch=master
+[Build Status]: https://travis-ci.org/dougzilla32/CPKAlamofire.svg?branch=master
 [PromiseKit's Alamofire Extension]: https://github.com/PromiseKit/Alamofire-
