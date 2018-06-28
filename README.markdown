@@ -1,4 +1,6 @@
-# CancelForPromiseKit Alamofire Extensions ![Build Status]
+# CancelForPromiseKit Alamofire Extensions
+
+[![Build Status](https://travis-ci.org/dougzilla32/CPKAlamofire.svg?branch=master)](https://travis-ci.org/dougzilla32/CPKAlamofire)
 
 This project adds cancellable promises to [PromiseKit's Alamofire Extension].
 
@@ -95,6 +97,4 @@ let package = Package(
 )
 ```
 
-
-[Build Status]: https://travis-ci.org/dougzilla32/CPKAlamofire.svg?branch=master
 [PromiseKit's Alamofire Extension]: https://github.com/PromiseKit/Alamofire-
