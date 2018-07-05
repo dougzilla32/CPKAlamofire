@@ -2,11 +2,11 @@
 
 [![badge-docs](https://dougzilla32.github.io/CPKAlamofire/api/badge.svg)](https://dougzilla32.github.io/CPKAlamofire/api/) [![Build Status](https://travis-ci.org/dougzilla32/CPKAlamofire.svg?branch=master)](https://travis-ci.org/dougzilla32/CPKAlamofire)
 
-This project adds cancellable promises to [PromiseKit's Alamofire Extension].
+The [CancelForPromiseKit Alamofire Extensions] add cancellable promises to [PromiseKit's Alamofire Extensions].
 
 This project supports Swift 3.1, 3.2, 4.0 and 4.1.
 
-Here is the [Jazzy](https://github.com/realm/jazzy) generated [CancelForPromiseKit Alamofire Extensions API documentation](https://dougzilla32.github.io/CPKAlamofire/api/).
+Here's a link to the [Jazzy](https://github.com/realm/jazzy) generated [API documentation](https://dougzilla32.github.io/CPKAlamofire/api/).
 
 ## Usage
 
@@ -99,4 +99,5 @@ let package = Package(
 )
 ```
 
-[PromiseKit's Alamofire Extension]: https://github.com/PromiseKit/Alamofire-
+[CancelForPromiseKit Alamofire Extensions]: https://github.com/dougzilla32/CPKAlamofire
+[PromiseKit's Alamofire Extensions]: https://github.com/PromiseKit/Alamofire-
