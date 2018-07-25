@@ -1,4 +1,4 @@
-import Alamofire
+@_exported import Alamofire
 import PromiseKit
 
 #if Carthage
@@ -63,7 +63,7 @@ extension Alamofire.DataRequest {
 
 extension Alamofire.DownloadRequest {
     /// Wraps Alamofire.Reponse.DefaultDownloadResponse from Alamofire.DownloadRequest.response(queue:) as CancellablePromise<Alamofire.Reponse.DefaultDownloadResponse>
-   public func responseCC(_: PMKNamespacer, queue: DispatchQueue? = nil) -> CancellablePromise<DefaultDownloadResponse> {
+    public func responseCC(_: PMKNamespacer, queue: DispatchQueue? = nil) -> CancellablePromise<DefaultDownloadResponse> {
         return CancellablePromise(task: self, self.response(.promise, queue: queue))
     }
     

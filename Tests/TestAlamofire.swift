@@ -1,4 +1,3 @@
-import Alamofire
 import CPKAlamofire
 import OHHTTPStubs
 import PromiseKit
@@ -12,7 +11,7 @@ import class Contacts.CNPostalAddress
 #endif
 
 class AlamofireTests: XCTestCase {
-    func test() {
+    func testCancel() {
         let json: NSDictionary = ["key1": "value1", "key2": ["value2A", "value2B"]]
         
         OHHTTPStubs.stubRequests(passingTest: { $0.url!.host == "example.com" }) { _ in
@@ -42,7 +41,7 @@ class AlamofireTests: XCTestCase {
         let key2: [String]
     }
     
-    func testDecodable1() {
+    func testCancelDecodable1() {
         
         func getFixture() -> CancellablePromise<Fixture> {
             return Alamofire.request("http://example.com", method: .get).responseDecodableCC(queue: nil)
@@ -66,7 +65,7 @@ class AlamofireTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
     
-    func testDecodable2() {
+    func testCancelDecodable2() {
         let json: NSDictionary = ["key1": "value1", "key2": ["value2A", "value2B"]]
         
         OHHTTPStubs.stubRequests(passingTest: { $0.url!.host == "example.com" }) { _ in
